@@ -586,10 +586,10 @@ int sprd_fm_test_play(void){
 }
 
 int sprd_fm_test_stop(void){
-    AudioSystem::setDeviceConnectionState(AUDIO_DEVICE_OUT_FM_HEADSET,
-        AUDIO_POLICY_DEVICE_STATE_UNAVAILABLE, "", "");
+    /* AudioSystem::setDeviceConnectionState(AUDIO_DEVICE_OUT_FM_HEADSET,
+        AUDIO_POLICY_DEVICE_STATE_UNAVAILABLE, "", ""); */
         AudioSystem::setForceUse(AUDIO_POLICY_FORCE_FOR_MEDIA,
         AUDIO_POLICY_FORCE_NONE);
-    return 0;
+    return;
 }
 }
