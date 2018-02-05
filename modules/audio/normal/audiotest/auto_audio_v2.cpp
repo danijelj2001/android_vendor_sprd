@@ -242,8 +242,8 @@ status_t setDeviceStateIsConnection( audio_devices_t device )
         //AUDIO_DEVICE_OUT_SPEAKER,
         AUDIO_DEVICE_OUT_WIRED_HEADSET,
         AUDIO_DEVICE_OUT_WIRED_HEADPHONE,
-        AUDIO_DEVICE_OUT_FM_HEADSET,
-        AUDIO_DEVICE_OUT_FM_SPEAKER,
+       //   AUDIO_DEVICE_OUT_FM_HEADSET,
+       //   AUDIO_DEVICE_OUT_FM_SPEAKER,
     };
 
     for( uint i = 0; i < sizeof(arrOut) / sizeof(arrOut[0]); ++i ) {
@@ -555,11 +555,12 @@ int sprd_audiorecord_test_stop(void){
 }
 
 int sprd_fm_test_open(void){
-    AudioSystem::setDeviceConnectionState(AUDIO_DEVICE_OUT_FM_SPEAKER,
+    /* AudioSystem::setDeviceConnectionState(AUDIO_DEVICE_OUT_FM_SPEAKER,
         AUDIO_POLICY_DEVICE_STATE_UNAVAILABLE, "", "");
     AudioSystem::setDeviceConnectionState(AUDIO_DEVICE_OUT_FM_HEADSET,
         AUDIO_POLICY_DEVICE_STATE_UNAVAILABLE, "", "");
-    return 0;
+    */
+    return;
 }
 
 int sprd_fm_test_play(void){
@@ -570,7 +571,7 @@ int sprd_fm_test_play(void){
     AudioSystem::setParameters(audio_io_handle_t(0),fm_mute);
     AudioSystem::setForceUse(AUDIO_POLICY_FORCE_FOR_FM,AUDIO_POLICY_FORCE_NONE);
 
-    status = AudioSystem::setDeviceConnectionState(AUDIO_DEVICE_OUT_FM_HEADSET,
+    // status = AudioSystem::setDeviceConnectionState(AUDIO_DEVICE_OUT_FM_HEADSET,
          AUDIO_POLICY_DEVICE_STATE_AVAILABLE, "", "");
     // AudioSystem::setForceUse(AUDIO_POLICY_FORCE_FOR_MEDIA,AUDIO_POLICY_FORCE_NONE);
 
